@@ -16,4 +16,4 @@ spec:
     spec: 
       containers: 
       - name: my-deployment-container 
-        image: ubuntu
+        image: ubuntu:latest
