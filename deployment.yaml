@@ -1,19 +1,27 @@
-apiVersion: apps/v1 
-kind: Deployment 
-metadata: 
-  name: my-deployment 
-spec: 
-  replicas: 3 
-  strategy: 
-    type: Recreate 
-  selector: 
-    matchLabels: 
-      app: my-app 
-  template: 
-    metadata: 
-      labels: 
-        app: my-app 
-    spec: 
-      containers: 
-      - name: my-deployment-container 
-        image: ubuntu:latest
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-deployment
+  labels:
+    app: ubuntu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu:latest
+          command: ["sleep", "infinity"]
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+            requests:
+              cpu: "250m"
+              memory: "128Mi"
