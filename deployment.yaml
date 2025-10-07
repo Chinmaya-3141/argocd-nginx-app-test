@@ -16,4 +16,4 @@ spec:
     spec: 
       containers: 
       - name: my-deployment-container 
-        image: nginx
+        image: ubuntu
